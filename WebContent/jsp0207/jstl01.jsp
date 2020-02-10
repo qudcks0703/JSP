@@ -1,4 +1,3 @@
-<%@page import="web.jsp0207.TestVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
 	<%-- 1. 변수 선언 : set
 		var : 변수명
 		홑태그 - value : 값
-		쌍태그 - 태그 중간에 값 작성
+		쌍태그 - 태그 중간에 값 작성 
 	
 	--%>
 	<c:set var="id" value="java"/>
@@ -25,7 +24,6 @@
 	
 	<h2>vo.id = <%=vo.getId() %></h2>--%>
 	
-	<jsp:useBean id="vo" class="web.jsp0207.TestVo" />
 	<c:set target="${vo}" property="id" value="test"/>
 	<h2>vo.id : ${vo.id}</h2>
 	
