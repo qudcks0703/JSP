@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginformBean implements Bean{
+public class mainBean implements Bean{
 
 	public String actionBean(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
-		return "jsp0210/main.jsp";
+		return "jsp0210/loginform.jsp";
 	}
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>로그인</h1>
-<form action="loginformpro.0210">
+<form action="loginpro.0210">
 	id:<input type="text" name="id"><br/> 
 	pw:<input type="password" name="pw"><br/>
 	<input type="submit" value="로그인"><br/> 
