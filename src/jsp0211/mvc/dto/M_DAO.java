@@ -1,23 +1,23 @@
-package jsp0210.mvc;
+package jsp0211.mvc.dto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-
 public class M_DAO {
 
 
 	private static M_DAO mdao=new M_DAO(); 
-	private ResultSet rs;
-	private PreparedStatement pstmt;
-	private Connection conn;
-	private DataSource ds;
+	ResultSet rs;
+	PreparedStatement pstmt;
+	Connection conn;
+	DataSource ds;
 	
 		//생성자에서 인터넷연결 시도
 		private M_DAO() {
@@ -55,11 +55,31 @@ public class M_DAO {
 				close(pstmt, conn, rs);
 			}
 			return -1;
-			
-			
 		}
+		
+		public int signup(M_DTO mdto) {
+			try {
+				conn=ds.getConnection();
+				String sql="insert into member values (?,?,?)";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, mdto.getId());
+				pstmt.setString(2, mdto.getPw());
+				pstmt.setString(3, mdto.getName());
+				return pstmt.executeUpdate();
+				
+			}catch(Exception e) {
+				System.out.println("signup 실패");
+				e.printStackTrace();
+			}finally {
+				close(pstmt, conn, rs);
+			}
+			return 0;
+		}
+		
+		
+		
 	
-		private void close(PreparedStatement pstmt,Connection conn,ResultSet rs) {
+		public void close(PreparedStatement pstmt,Connection conn,ResultSet rs) {
 			if(rs!=null) {
 				try {
 					rs.close();

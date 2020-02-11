@@ -26,20 +26,28 @@ public class M_controller extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		String path=config.getInitParameter("propertiesPath");
-		//path 안엔 주소만 적혀잇음
+		//path="D:\\Byoungchan\\git\\JSP\\WebContent\\WEB-INF\\properties\\test.properties";
 		Properties pp=null;
 		InputStream is=null;
 		try {
 			is=new FileInputStream(path);
 			pp=new Properties();
 			pp.load(is);
-			//System.out.println(pp); properties안에 있는 값들 출력됨
+			//pp={/web/loginform.0210=jsp0210.mvc.LoginformBean,/web/loginpro.0210=jsp0210.mvc.LoginformproBean,/web/main.0210=jsp0210.mvc.mainBean}
+			
 			Iterator it=pp.keySet().iterator();
-			while(it.hasNext()) {
-				String key=(String)it.next();
-				String value=(String)pp.getProperty(key);
+			//pp.keyset() ={/web/loginform.0210,/web/loginpro.0210,/web/main.0210}
+			//it= iterator의 주소값
+			while(it.hasNext()) {//안에 값이 있냐
+				String key=(String)it.next();///web/loginform.0210
+				String value=(String)pp.getProperty(key);//jsp0210.mvc.LoginformBean
+				
 				Class c =Class.forName(value);
 				Object obj=c.newInstance();
+				//LoginformBean lfb=new LoginformBean();
+				//LoginformBean lfb=new jsp0210.mvc.LoginformBean();
+				//Object lfb=new LoginformBean();
+				//Object lfb=new jsp0210.mvc.LoginformBean();
 				beanMap.put(key, obj);
 			}
 		}catch(Exception e) {
@@ -52,10 +60,17 @@ public class M_controller extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println(beanMap);
 		String uri=req.getRequestURI();
-		
+		//uri=/web/loginform.0210
 		//System.out.println(realpath);
-		Bean bean=(Bean)beanMap.get(uri);
-		String view=bean.actionBean(req, resp);
+		Object obj=beanMap.get(uri);
+		Bean bean=null;
+		String view=null;
+		if(obj instanceof Bean) {
+			bean=(Bean)obj;
+			view=bean.actionBean(req, resp);
+		}
+		//Bean bean=(Bean)beanMap.get(uri);
+		//String view=bean.actionBean(req, resp);
 		RequestDispatcher rd=req.getRequestDispatcher(view);
 		rd.forward(req, resp);
 	}
