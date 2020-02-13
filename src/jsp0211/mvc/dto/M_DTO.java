@@ -2,6 +2,7 @@ package jsp0211.mvc.dto;
 
 public class M_DTO {
 
+
 	private String id;
 	private String pw;
 	private String name;

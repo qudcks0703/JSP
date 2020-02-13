@@ -24,22 +24,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/web/main.0211">${sid} Hello</a>
+            <a class="navbar-brand" href="/web/s.0211">${sid} Hello</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/web/main.0211">Home</a></li>
-              <li><a href="/web/board.0211">Board</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User Private<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/web/userupdate.0211">User Update</a></li>
-                  <li><a href="/web/userdelete.0211">User Delete</a></li>
-                </ul>
-              </li>
-                  <c:if test="${sid=='admin'}">
-	                  <li><a href="/web/admin.0211">Admin Page</a></li>
-                  </c:if>
+              <li class="active"><a href="/web/main.0211">User Page</a></li>
+              <li><a href="/web/adminusers.0211">Users</a></li>
+	          <li><a href="/web/adminboard.0211">Board</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             	<li><a href="/web/logout.0211">Logout</a></li>
@@ -51,7 +42,7 @@
 	<div class="jumbotron">
 	      <div class="container">
 	        <h1>Hello, ${sid}</h1>
-	        <p>This is place where everyone ard board and private</p>
+	        <p>This is Admin Page</p>
 	      </div>
 	    </div>
 	
@@ -59,12 +50,12 @@
 	      <!-- Example row of columns -->
 	      <div class="row">
 	        <div class="col-md-6">
-	          <h2>Board</h2>
-	          <p><a class="btn btn-default" href="/web/board.0211" role="button">View Board &raquo;</a></p>
+	          <h2>Users</h2>
+	          <p><a class="btn btn-default" href="/web/adminusers.0211" role="button">View Users &raquo;</a></p>
 	        </div>
 	        <div class="col-md-6">
-	          <h2>User Private</h2>
-	          <p><a class="btn btn-default" href="#" role="button">View Private &raquo;</a></p>
+	          <h2>Board</h2>
+	          <p><a class="btn btn-default" href="/web/adminboard.0211" role="button">View Board &raquo;</a></p>
 	       </div>
 	      </div>
 	
@@ -97,7 +88,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            	<li><a href="/web/signup.0211">Sign up</a></li>
+            	<li><a href="/web/singup.0211">Sign up</a></li>
             	<li><a href="/web/login.0211">Login</a></li>
             </ul>
           </div><!--/.nav-collapse -->

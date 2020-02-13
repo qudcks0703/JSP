@@ -8,25 +8,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:choose>
-	<c:when test="${result==1}">
-		<script>
-			alert("회원가입 추카링");
-			window.location.href="/web/login.0211";
-		</script>
-	</c:when>
-	<c:when test="${result==0}">
-		<script>
-			alert("회원가입 안되쩡");
-			history.go(-1);
-		</script>
-	</c:when>
-	<c:otherwise>
-		<script>
-			alert("비정상적인 접근입니다.");
-			window.location.href="/web/login.0211";
-		</script>
-	</c:otherwise>
-</c:choose>
+	<c:choose>
+		<c:when test="${result==1}">
+			<script>
+				alert("회원가입 추카링");
+				window.location.href="/web/login.0211";
+			</script>
+		</c:when>
+		<c:when test="${result==0}">
+			<script>
+				alert("회원가입 안되쩡");
+				history.go(-1);
+			</script>
+		</c:when>
+		<c:otherwise>
+			<script>
+				alert("비정상적인 접근입니다.");
+				//window.location.href="/web/login.0211";
+			</script>
+			<c:redirect url="/login.0211"/>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>
