@@ -22,7 +22,7 @@
 			i++;
 		}else{
 			$(this).addClass('btn-danger');
-			$("#hi").after().remove();
+			$("#hi").
 			i--;
 		}
 	});
