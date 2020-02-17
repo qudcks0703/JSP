@@ -31,6 +31,7 @@
 </head>
 <body>
 <div>
+<form action="" enctype="application/x-www-form-urlencoded"></form>
 <button type="button" id='hi' class="btn btn-danger">반갑다</button>
 <div></div>
 </div>
