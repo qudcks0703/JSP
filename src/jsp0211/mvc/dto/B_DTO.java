@@ -11,6 +11,16 @@ public class B_DTO {
 	private int num;
 	private int r;
 	
+	public B_DTO() {
+	}
+	public B_DTO(String id, String title, String content, Timestamp reg, int num, int r) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.reg = reg;
+		this.num = num;
+		this.r = r;
+	}
 	public String getId() {
 		return id;
 	}
